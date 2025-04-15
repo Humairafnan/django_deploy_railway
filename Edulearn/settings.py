@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'courses.apps.CoursesConfig',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +54,16 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'Edulearn.urls'
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://web-production-42de.up.railway.app"
+]
+
+
+CORS_ALLOWED_ORIGINS = [
+    "https://web-production-42de.up.railway.app"
+]
+
 
 TEMPLATES = [
     {
