@@ -3,7 +3,7 @@ from decouple import config
 
 SECRET_KEY = config('SECRET_KEY')
 
-ALLOWED_HOSTS = ['web-production-52b0.up.railway.app']
+ALLOWED_HOSTS = ['web-production-828d0.up.railway.app']
 DATABASES={
     'default':{
         'Engine': 'django.db.backendspostgresql_psycopg2',
