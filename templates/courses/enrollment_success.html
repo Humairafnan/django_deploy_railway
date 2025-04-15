@@ -1,0 +1,22 @@
+{% extends "courses/base.html" %}
+
+{% block content %}
+<div class="container text-center">
+    <h2 class="text-success fw-bold">Enrollment Status</h2>
+    <p>Hello, <strong>{{ student.name }}</strong>!</p>
+    <p>Course: <strong>{{ course.title }}</strong></p>
+
+    {% if was_already_enrolled %}
+        <p class="text-warning">
+            ⚠️ You were already enrolled in this course.
+        </p>
+    {% else %}
+        <p class="text-success">
+            ✅ You have been successfully enrolled!
+        </p>
+    {% endif %}
+
+    <a href="{% url 'course_detail' course.id %}" class="btn btn-primary">Go to Course</a>
+    <a href="{% url 'course_list' %}" class="btn btn-secondary">Back to Courses</a>
+</div>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends "courses/base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<style>
+    /* Custom Profile Form Styles */
+    .profile-form {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 30px;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Form Field Styling */
+    .profile-form .form-group {
+        margin-bottom: 15px;
+    }
+
+    .profile-form input,
+    .profile-form select,
+    .profile-form textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        font-size: 14px;
+    }
+
+    /* Button Styling */
+    .profile-form button {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #28a745;
+        border: none;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .profile-form button:hover {
+        background-color: #218838;
+    }
+
+    /* Heading Styling */
+    h2 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .profile-form {
+            padding: 20px;
+        }
+    }
+</style>
+
+<div class="container mt-5">
+    <h2>Update Profile</h2>
+    <form method="post" class="profile-form p-4 border rounded bg-white shadow-sm">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn btn-success">Update</button>
+    </form>
+</div>
+{% endblock %}

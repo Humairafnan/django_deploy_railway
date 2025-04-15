@@ -1,0 +1,78 @@
+{% extends "courses/base.html" %}
+
+{% block title %}Enrolled Students{% endblock %}
+
+{% block content %}
+<style>
+    .container {
+        max-width: 1200px;
+        margin-top: 50px;
+    }
+    
+    h2 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #007bff;
+        margin-bottom: 30px;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid #ddd;
+    }
+
+    .table th, .table td {
+        padding: 15px;
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid #ddd;
+    }
+
+    .table thead {
+        background-color: #343a40;
+        color: white;
+    }
+
+    .table tbody tr:hover {
+        background-color: #f8f9fa;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .text-muted {
+        color: #6c757d;
+        font-size: 1.1rem;
+    }
+</style>
+
+<div class="container">
+    <h2 class="text-center">Students Enrolled in {{ course.title }}</h2>
+
+    {% if students %}
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.email }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p class="text-muted text-center">No students enrolled in this course.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

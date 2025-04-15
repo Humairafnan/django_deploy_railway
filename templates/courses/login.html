@@ -1,0 +1,59 @@
+{% extends "courses/base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card p-4 shadow-lg" style="max-width: 400px; width: 100%;">
+        <h2 class="text-center mb-4">Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+            </div>
+            <div class="mb-3">
+                {{ form.password.label_tag }}
+                {{ form.password }}
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+        <p class="mt-3 text-center">
+            Don't have an account? <a href="{% url 'register' %}" class="text-decoration-none">Register</a>
+        </p>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .card {
+        background: #ffffff;
+        border-radius: 10px;
+    }
+
+    .btn-primary {
+        background-color: #ff9f1c;
+        border-color: #ff9f1c;
+    }
+
+    .btn-primary:hover {
+        background-color: #e88e0c;
+        border-color: #e88e0c;
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+    }
+
+    label {
+        font-weight: 600;
+    }
+</style>
+{% endblock %}
